@@ -7,5 +7,5 @@ get '/' do
   uri = URI.parse(ENV["REDISTOGO_URL"])
   message = "hello"
   name = "world!"
-  "#{message} #{name} #{redisURL} #{uri.host} #{uri.port} #{uri.password}"
+  "#{message} #{name} #{redisURL}"
 end
