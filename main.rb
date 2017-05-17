@@ -2,9 +2,10 @@ require 'sinatra'
 require 'redis'
 
 begin
-  uri = URI.parse(ENV["REDISTOGO_URL"])
+  encoded_url = URI.encode(ENV["REDISTOGO_URL"].to_s)
+  uri = URI.parse(encoded_url)
   redis = Redis.new(
-    :host => "no",
+    :host => uri.host,
     :port => uri.port,
     :password => uri.password
   )
