@@ -5,7 +5,7 @@ begin
   encoded_url = URI.encode(ENV["REDISTOGO_URL"].to_s)
   uri = URI.parse(encoded_url)
   redis = Redis.new(
-    :host => uri.host,
+    :host => 'no',
     :port => uri.port,
     :password => uri.password
   )
