@@ -1,5 +1,7 @@
 require 'sinatra'
 
 get '/' do
-  "Hello!"
+  message = "hello"
+  name = "world!"
+  "#{message} #{name}"
 end
