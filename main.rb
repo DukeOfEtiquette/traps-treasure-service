@@ -4,7 +4,7 @@ require 'redis'
 begin
   uri = URI.parse(ENV["REDISTOGO_URL"])
   redis = Redis.new(
-    :host => uri.host,
+    :host => "no",
     :port => uri.port,
     :password => uri.password
   )
