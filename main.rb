@@ -12,7 +12,7 @@ pusher_client = Pusher::Client.new(
 get '/' do
 
   pusher_client.trigger('my-channel', 'my-event', {
-    message: 'hello world'
+    message: 'NEW TEXT'
   })
 
   message = "hello"
