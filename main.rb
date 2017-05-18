@@ -12,7 +12,8 @@ pusher_client = Pusher::Client.new(
 get '/' do
 
   pusher_client.trigger('my-channel', 'my-event', {
-    message: 'NEW TEXT'
+    result = REDIS.get("foo")
+    message: "#{result}"
   })
 
   message = "hello"
