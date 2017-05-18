@@ -4,6 +4,9 @@ require 'redis'
 begin
   encoded_url = URI.encode(ENV["REDISTOGO_URL"].to_s)
   uri = URI.parse(encoded_url)
+  puts "HOST: #{uri.host}"
+  puts "PORT: #{uri.port}"
+  puts "PASS: #{uri.password}"
   redis = Redis.new(
     :host => uri.host,
     :port => uri.port,
