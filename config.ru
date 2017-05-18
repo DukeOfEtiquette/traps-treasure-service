@@ -1,6 +1,7 @@
 require_relative 'main'
 
 configure do
+  require 'pusher'
   pusher_client = Pusher::Client.new(
     app_id: '341330',
     key: '338b7804d638b00a56a2',

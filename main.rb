@@ -1,8 +1,6 @@
 require 'sinatra'
 require 'pusher'
 
-
-
 get '/' do
 
   pusher_client.trigger('my-channel', 'my-event', {
