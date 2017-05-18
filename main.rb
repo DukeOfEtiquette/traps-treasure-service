@@ -12,10 +12,10 @@ begin
     :port => uri.port,
     :password => uri.password
   )
-  puts redis.info
+#  puts redis.info
   client_ping = redis.ping
   if client_ping
-    puts 'Connected!'
+    puts 'CONNECTED!'
   else
     raise 'Ping failed'
   end
