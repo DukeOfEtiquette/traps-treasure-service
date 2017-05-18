@@ -3,5 +3,7 @@ require 'sinatra'
 get '/' do
   message = "hello"
   name = "world!"
-  "#{message} #{name}"
+  REDIS.set("answer", 42)
+  result = REDIS.get("answer")
+  "#{message} #{name} #{result}"
 end
