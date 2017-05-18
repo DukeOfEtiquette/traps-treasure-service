@@ -11,13 +11,12 @@ pusher_client = Pusher::Client.new(
 
 get '/' do
 
+  result = REDIS.get("foo")
   pusher_client.trigger('my-channel', 'my-event', {
-    result = REDIS.get("foo")
     message: "#{result}"
   })
 
   message = "hello"
   name = "world!"
-  result = REDIS.get("foo")
   "#{message} #{name} #{result}"
 end
