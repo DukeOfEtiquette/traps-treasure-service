@@ -20,3 +20,11 @@ get '/' do
   name = "world!"
   "#{message} #{name} #{result}"
 end
+
+get '/:id' do
+  pusher_client.trigger('my-channel', 'my-event', {
+    message: "#{params['id']}"
+  })
+
+  "Sending #{params['id']}"
+end
