@@ -20,10 +20,10 @@ get '/' do
   "#{message} #{name} #{result}"
 end
 
-get '/:id' do
-  pusher_client.trigger('my-channel', 'my-event', {
-    message: "#{params['id']}"
+get '/:id/move/:new_loc' do
+  pusher_client.trigger('my-channel', 'player-move', {
+    message: "#{params['new_loc']}"
   })
 
-  "Sending #{params['id']}"
+  "Sending #{params['new_loc']}"
 end
