@@ -11,7 +11,7 @@ pusher_client = Pusher::Client.new(
 
 get '/' do
   result = REDIS.get("foo")
-  pusher_client.trigger('my-channel', 'my-event', {
+  pusher_client.trigger('movements', 'my-event', {
     message: "#{result}"
   })
 
@@ -21,7 +21,7 @@ get '/' do
 end
 
 get '/:id/move/:new_loc' do
-  pusher_client.trigger('my-channel', 'player-move', {
+  pusher_client.trigger('movements', 'player-move', {
     new_location: "#{params['new_loc']}",
     player_id: "#{params['id']}"
   })
