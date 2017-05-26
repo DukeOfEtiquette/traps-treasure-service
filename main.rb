@@ -21,9 +21,11 @@ get '/' do
 end
 
 get '/:id/move/:new_loc' do
+  REDIS.set(params['id'], params['new_loc'])
+
   pusher_client.trigger('movements', 'player-move', {
-    new_location: "#{params['new_loc']}",
-    player_id: "#{params['id']}"
+    new_location: REDIS.get("#{params['new_loc']}"),
+    player_id: REDIS.get("#{params['id']}")
   })
 
   "Sending #{params['new_loc']}"
